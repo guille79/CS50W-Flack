@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Login
+{% endblock %}
+
+{% block body %}
+
+        <form action="{{ url_for('index') }}" method="get">
+            <span>Display Name: {{ display_name }}</span>
+            <button>Sign Out</button>
+        </form>
+
+        <form action="{{ url_for('channel_list') }}" method="post">
+            <input id="field" type="text" name="channel_name" placeholder="Channel Name">
+            <button id="submit">Create New Channel</button>
+        </form>   
+    
+        <ul id="channel_list">
+            {% for channel in channels %}
+            <li>
+                <a href="{{ url_for('show_channel', channel_id=channel.id) }}" method="get">
+                    {{ channel.name }}
+                </a>
+            </li>    
+            {% endfor %}
+        </ul>
+    
+{% endblock %}

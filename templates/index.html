@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Login
+{% endblock %}
+
+{% block body %}
+
+    <form action="{{ url_for('channel_list') }}" method="post">
+        <input id="field" type="text" name="display_name" placeholder="Your Display Name">
+        <button id="submit">Sign In</button>
+    </form>
+    
+{% endblock %}
